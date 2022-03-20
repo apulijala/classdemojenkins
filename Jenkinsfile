@@ -35,15 +35,20 @@ pipeline {
                     }
                
                     println("${planet}")
-                    def loginInformation = input message : "Do you want to proceed", 
-                                        parameters : [
-                                            booleanParam(name :"yesno", 
-                                            defaultValue: false, 
-                                            description : "Checkbox" )
-                                        ]
-                    println(loginInformation.yesno)
-                    println(loginInformation['yesno'])
-                    println("Login information is ${loginInformation['yesno']}")
+
+                     def loginInformation = input message : "Login", 
+                                    parameters : [
+                                        string(defaultValue : "Login", name : "userid", 
+                                         description : "Enter userid"), 
+                                        password(defaultValue : "passwd", 
+                                            description: "Enter Password", 
+                                            name : "passwd"
+                                        )
+
+                                    ]
+                  println("Username = " + loginInformation["userid"])
+                  println("Password =  +  ${loginInformation['passwd']}")
+                  println(" Using dot operator " + loginInformation.passwd)
                  }
             }
                 
