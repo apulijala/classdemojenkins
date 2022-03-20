@@ -25,6 +25,7 @@ pipeline {
                 })
             }
             steps {
+
                 echo "Running the compile phase ${params.hostname}"
                 script {
                     if (yesno) {
@@ -32,11 +33,11 @@ pipeline {
                     }else {
                         echo "Compilation not required"
                     }
-                    
-               
+
+                    timeout(time: 10, unit: 'SECONDS') {
+                        echo "Hello Timeout"
+                    }
                  }
-                 
-                 
             }
                 
         }
