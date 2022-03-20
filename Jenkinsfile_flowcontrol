@@ -50,7 +50,7 @@ pipeline {
                         }
                     */
 
-                    lock (label : "dockerinbound", quantity: 1) {
+                    lock (label : "east", quantity: 1) {
                         sleep 5
                     }
                    
