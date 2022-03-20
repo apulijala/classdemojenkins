@@ -17,6 +17,7 @@ pipeline {
     }
 
     stages {
+
         stage("Compile") {
             agent {
                 docker ({
@@ -34,10 +35,24 @@ pipeline {
                     }
                 }
                 println("${planet}")
-
+                def loginInformation = input message : "Do you want to proceed", 
+                                    parameters : [
+                                        booleanParam(name :"yesno", 
+                                        defaultValue: false, 
+                                        description : "Checkbox" )
+                                    ]
+                println(loginInformation.yesno)
+                println(loginInformation['yesno'])
+                println("Login information is ${loginInformation['yesno']}")
                 
             }
                 
         }
-    }
+
+        stage("Deploly") {
+                steps {
+                    echo "deploying to the environment"
+                }
+        
+        }
 }
