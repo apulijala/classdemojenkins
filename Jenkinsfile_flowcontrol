@@ -45,6 +45,15 @@ pipeline {
                     sleep( time : 5 , unit : "MINUTES") {
                         echo "Hello World and Jaya guru Datta"
                     }
+
+                    waitUntil { 
+                        // Will wait until the conditions are true. 
+
+                        echo "In the wait until loop "
+                        def ret = sh returnStatus: true , 
+                            script: "sleep 10"
+                    }
+
                  }
             }
                 
