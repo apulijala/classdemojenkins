@@ -17,10 +17,7 @@ pipeline {
 
     stages {
         stage("Compile") {
-             docker {
-                image 'python:3'
-                label  'east'
-            }
+              label  'east'
             steps{
                 echo "Running the compile phase"
                 sh 'python3 -m compileall adder.py' 
