@@ -43,8 +43,16 @@ pipeline {
                             ]
                     }
 
-               
+                    /*
+                     Cannot sleep for 5 minutes. 
+                        sleep( time : 5 , unit : "MINUTES") {
+                            echo "Hello World and Jaya guru Datta"
+                        }
+                    */
 
+                    lock (label : "dockerinbound", quantity: 1) {
+                        sleep 5
+                    }
                    
                  }
             }
