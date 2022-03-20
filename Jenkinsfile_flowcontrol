@@ -43,9 +43,7 @@ pipeline {
                             ]
                     }
 
-                    sleep( time : 5 , unit : "MINUTES") {
-                        echo "Hello World and Jaya guru Datta"
-                    }
+               
 
                    
                  }
