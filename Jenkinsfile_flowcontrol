@@ -41,6 +41,10 @@ pipeline {
                                     description: "Enter UserId", name : "User id")
                             ]
                     }
+
+                    sleep( time : 5 , unit : "MINUTES") {
+                        echo "Hello World and Jaya guru Datta"
+                    }
                  }
             }
                 
