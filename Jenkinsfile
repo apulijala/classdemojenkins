@@ -13,25 +13,20 @@ pipeline {
             label  'east && demo'
         */
         label  'east'
-        
-}
-
-    stages {
-        stage("First Stage"){
-            steps{
-                echo "Demo Stage"
-            }
-          
-        }
     }
 
     stages {
-        
-        stage ("Second stage") {
-            steps {
-                echo "Second stage"
+        stage("First Stage") {
+
+            agent {
+                label  'dockerinbound'
             }
+            steps{
+                echo "Running first stage"
+            }
+          
         }
+
     }
 
 }
