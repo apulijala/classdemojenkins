@@ -1,5 +1,5 @@
 pipeline {
-    
+
     agent {
         label  'east'
     }
@@ -76,6 +76,28 @@ pipeline {
                     echo "deploying to the environment"
                 }
         
+        }
+
+        stage("Parallel Demo") {
+            script {
+                def stepsToRun = [:]
+
+                for ( int i = 1; i < 5; i++) {
+
+                        stepsToRun["Steps${i}"] = {
+                            node {
+                                    echo "Start"
+                                    sleep 5
+                                    echo "done"
+                            }
+                    }
+
+                }  
+                
+                parallel stepsToRun          
+                
+            }
+            
         }
     }
 }
