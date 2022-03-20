@@ -1,7 +1,6 @@
 pipeline{
     agent{
-
-        label "east"
+        east { image 'python:3' }
     }
 
     stages {
