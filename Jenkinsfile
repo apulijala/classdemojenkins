@@ -10,8 +10,10 @@ pipeline {
                 label  'east && demo'
             }
 
+            label  'east && demo'
         */
-        label  'east && demo'
+        label  'east'
+        
 }
 
     stages {
@@ -22,4 +24,14 @@ pipeline {
           
         }
     }
+
+    stages {
+        
+        stage ("Second stage") {
+            steps {
+                echo "Second stage"
+            }
+        }
+    }
+
 }
