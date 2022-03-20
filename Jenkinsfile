@@ -27,6 +27,20 @@ pipeline {
                 echo "Running the compile phase"
                 sh 'python3 -m compileall adder.py' 
             }
+            post{
+
+                always{
+                    echo "This will always run."
+                }
+                
+                success{
+                    echo "Build was successful"
+                }
+                
+                failure{
+                    echo "Build failed"
+                }
+            }
         }
 
     }
