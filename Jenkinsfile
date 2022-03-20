@@ -1,6 +1,5 @@
 pipeline {
     agent {
-       
         label  'east'
     }
     parameters {
@@ -61,4 +60,4 @@ pipeline {
         
         }
     }
-}
+
