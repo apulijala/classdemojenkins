@@ -16,7 +16,8 @@ pipeline {
     }
      parameters {
         string( name : "hostname", defaultValue: "demo-dev", description : "Hostname"   )
-        
+        booleanParam(name :"yesno", defaultValue: false, description : "Checkbox" )
+        choice(name : "planet", choices : ["Mercury", "Venus", "Mars", "Jupiter"]  )
     }
 
 
@@ -30,8 +31,17 @@ pipeline {
                 })
             }
             steps {
-                echo "Running the compile phase"
-                sh 'python3 -m compileall adder.py' 
+                
+                echo "Running the compile phase ${params.hostname}"
+                script {
+                    if (yesno) {
+                        sh 'python3 -m compileall adder.py' 
+                    }else {
+                        echo "Compilation not required"
+                    }
+                    
+                }
+                
             }
             post{
 
