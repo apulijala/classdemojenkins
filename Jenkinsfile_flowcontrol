@@ -2,6 +2,7 @@ pipeline {
     agent {
         label  'east'
     }
+    
     parameters {
         string( name : "hostname", defaultValue: "demo-dev", description : "Hostname"   )
         booleanParam(name :"yesno", defaultValue: false, description : "Checkbox" )
@@ -48,7 +49,6 @@ pipeline {
 
                     waitUntil { 
                         // Will wait until the conditions are true. 
-
                         echo "In the wait until loop "
                         def ret = sh returnStatus: true , 
                             script: "sleep 10"
