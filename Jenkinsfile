@@ -14,6 +14,12 @@ pipeline {
         */
         label  'east'
     }
+     parameters {
+        string( name : "hostname", defaultValue: "demo-dev", description : "Hostname"   )
+        
+    }
+
+
 
     stages {
         stage("Compile") {
@@ -23,7 +29,7 @@ pipeline {
                     label  'east'
                 })
             }
-            steps{
+            steps {
                 echo "Running the compile phase"
                 sh 'python3 -m compileall adder.py' 
             }
