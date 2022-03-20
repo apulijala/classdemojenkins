@@ -36,11 +36,20 @@ pipeline {
                 echo "Running the Test phase"
                 sh 'python3 -m unittest adder.py' 
             }
+            post{
+                always{
+                    echo "This will always work."
+                }
+                success{
+                    echo "Python build successful"
+                }
+                failure{
+                    echo "Python Build failed"
+                }
+            }
         }
 
-        post {
-            echo "All done"
-        }
+       
 
     }
 
