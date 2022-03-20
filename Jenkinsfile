@@ -18,10 +18,10 @@ pipeline {
     stages {
         stage("Compile") {
             agent {
-                docker {
+                docker ({
                     image 'python:3'
                     label  'east'
-                }
+                })
             }
             steps{
                 echo "Running the compile phase"
