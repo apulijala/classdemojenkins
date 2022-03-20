@@ -23,6 +23,7 @@ pipeline {
                 defaultValue :"password", 
                 description: "Enter the password")
         file(description : "Choose file to upload ", name : "myfile")
+        choice(name: 'planet', choices: ['Mercury', 'Venus', 'Mars'], description: 'Choose Planet')
     }
 
 
@@ -44,6 +45,22 @@ pipeline {
                     }else {
                         echo "Compilation not required"
                     }
+                   switch(planet) {            
+                //There is case statement defined for 4 cases 
+                // Each case statement section has a break condition to exit the loop 
+                    
+                    case "Mercury": 
+                        println("Planet is Mercury"); 
+                        break; 
+                    case "Venus": 
+                        println("Planet is Venus"); 
+                        break; 
+                    default: 
+                        println("The value is unknown"); 
+                        break; 
+      }
+   }
+                    println("${pla}")
                     
                 }
                 
