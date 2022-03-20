@@ -1,0 +1,58 @@
+pipeline {
+
+    agent {
+        /* 
+            Run on docker, but use the host labeled as 'east'
+            It will try to launch a docker container on this machine. 
+            docker has to be installed and connecte to master either by ssh/jnlp
+            docker {
+                image 'python:3'
+                label  'east && demo'
+            }
+
+            label  'east && demo'
+        */
+        label  'east'
+    }
+    parameters {
+        
+       string(name: 'hostname', defaultValue: 'gabor-dev', description: 'Hostname or IP address')
+       booleanParam(name: 'yesno', defaultValue: false, description: 'Checkbox')
+       choice(name: 'planet', choices: ['Mercury', 'Venus', 'Earth', 'Mars'], description:  'Pick a planet')
+       text(name: 'story', defaultValue: 'One\nTwo\nThree\n', description: '')
+       password(name: 'secret', defaultValue: '', description: 'Type some secret')
+ 
+    }
+
+
+
+    stages {
+        stage("Compile") {
+            agent {
+                docker ({
+                    image 'python:3'
+                    label  'east'
+                })
+            }
+            steps {
+                echo "Running the compile phase"
+                sh 'python3 -m compileall adder.py' 
+            }
+            post{
+
+                always{
+                    echo "This will always run."
+                }
+                
+                success{
+                    echo "Build was successful"
+                }
+                
+                failure{
+                    echo "Build failed"
+                }
+            }
+        }
+
+    }
+}
