@@ -17,7 +17,9 @@ pipeline {
 
     stages {
         stage("Compile") {
-              label  'east'
+            agent {
+                label  'east'
+            }
             steps{
                 echo "Running the compile phase"
                 sh 'python3 -m compileall adder.py' 
