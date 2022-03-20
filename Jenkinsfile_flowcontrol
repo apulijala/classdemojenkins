@@ -78,7 +78,21 @@ pipeline {
         
         }
 
-        
+        stage ("Parallel Demo") {
+            script {
+                def stepsToRun = [:]
+                for (int i = 0; i < 5; i++ ) {
+                    stepsToRun ["Step_${i}"] = {
+                        node {
+                            echo "start"
+                            sleep 5
+                            echo "done"
+                        }
+                    }
+                }
+
+            }
+        }
     }
 }
 
