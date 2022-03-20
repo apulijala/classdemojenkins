@@ -34,8 +34,12 @@ pipeline {
                         echo "Compilation not required"
                     }
 
-                    timeout(time: 10, unit: 'SECONDS') {
-                        echo "Hello Timeout"
+                    timeout(time: 30, unit: 'SECONDS') {
+                        input message : "Enter the timeout", 
+                            parameters : [
+                                string(defaultValue : "user1", 
+                                    description: "Enter UserId", name : "User id")
+                            ]
                     }
                  }
             }
