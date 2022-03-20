@@ -17,7 +17,7 @@ pipeline {
      parameters {
         string( name : "hostname", defaultValue: "demo-dev", description : "Hostname"   )
         booleanParam(name :"yesno", defaultValue: false, description : "Checkbox" )
-        choice(name : "planet", choices : ["Mercury", "Venus", "Mars", "Jupiter"]  )
+      
     }
 
 
