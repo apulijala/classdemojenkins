@@ -34,19 +34,7 @@ pipeline {
                     }
                
                  }
-                 script {
-                     def response 
-                     timeout(time: 60, unit: 'SECONDS') {
-                        response = input message: 'Enter User Name'
-                                parameters : [
-                                    string(defaultValue : "user1", 
-                                        description : "Enter User id", name : "userId"
-                                    )
-                                ]
-                        echo "Username  = " + userId
-                }
-
-                 }
+                 
                  
             }
                 
@@ -59,4 +47,5 @@ pipeline {
         
         }
     }
+}
 
