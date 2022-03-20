@@ -82,7 +82,7 @@ pipeline {
             
             steps {
                 script {
-
+                    // parallel the old way. 
                     def stepsToRun = [:]
                     for (int i = 0; i < 5; i++ ) {
                         stepsToRun ["Step_${i}"] = {
