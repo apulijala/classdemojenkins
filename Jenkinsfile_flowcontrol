@@ -94,6 +94,8 @@ pipeline {
                         }
                     }
 
+                    parallel stepsToRun
+
                 }
             }
        
