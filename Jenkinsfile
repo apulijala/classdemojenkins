@@ -1,5 +1,4 @@
 pipeline {
-
     agent {
         /* 
             Run on docker, but use the host labeled as 'east'
@@ -45,22 +44,9 @@ pipeline {
                     }else {
                         echo "Compilation not required"
                     }
-                   switch(planet) {            
-                //There is case statement defined for 4 cases 
-                // Each case statement section has a break condition to exit the loop 
-                    
-                    case "Mercury": 
-                        println("Planet is Mercury"); 
-                        break; 
-                    case "Venus": 
-                        println("Planet is Venus"); 
-                        break; 
-                    default: 
-                        println("The value is unknown"); 
-                        break; 
-      }
+                 
    }
-                    println("${pla}")
+                    println("${planet}")
                     
                 }
                 
@@ -81,4 +67,5 @@ pipeline {
             }
         }
 
-    }
+
+}
