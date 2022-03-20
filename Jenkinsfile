@@ -17,7 +17,12 @@ pipeline {
      parameters {
         string( name : "hostname", defaultValue: "demo-dev", description : "Hostname"   )
         booleanParam(name :"yesno", defaultValue: false, description : "Checkbox" )
-      
+        text(name : "story", defaultValue :"Default value of the story", 
+                description : "Default value of the Story")
+        password(name : "secret", 
+                defaultValue :"password", 
+                description: "Enter the password")
+        file(description : "Choose file to upload ", name : "myfile")
     }
 
 
