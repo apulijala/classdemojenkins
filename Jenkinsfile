@@ -35,18 +35,7 @@ pipeline {
                 }
                 println("${planet}")
 
-                script {
-                     def loginInformation = input message : "Login", 
-                                        parameters : [
-                                        string(defaultValue : "Login", name : "userid", 
-                                         description : "Enter userid"), 
-                                        password(defaultValue : "passwd", 
-                                            description: "Enter Password", 
-                                            name : "passwd"
-                                        )
-
-                                    ]
-                }
+                
             }
                 
         }
