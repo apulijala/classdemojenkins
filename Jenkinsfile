@@ -33,18 +33,18 @@ pipeline {
                     }else {
                         echo "Compilation not required"
                     }
-                }
-                println("${planet}")
-                def loginInformation = input message : "Do you want to proceed", 
-                                    parameters : [
-                                        booleanParam(name :"yesno", 
-                                        defaultValue: false, 
-                                        description : "Checkbox" )
-                                    ]
-                println(loginInformation.yesno)
-                println(loginInformation['yesno'])
-                println("Login information is ${loginInformation['yesno']}")
-                
+               
+                    println("${planet}")
+                    def loginInformation = input message : "Do you want to proceed", 
+                                        parameters : [
+                                            booleanParam(name :"yesno", 
+                                            defaultValue: false, 
+                                            description : "Checkbox" )
+                                        ]
+                    println(loginInformation.yesno)
+                    println(loginInformation['yesno'])
+                    println("Login information is ${loginInformation['yesno']}")
+                 }
             }
                 
         }
