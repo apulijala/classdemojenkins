@@ -16,15 +16,30 @@ pipeline {
     }
 
     stages {
-        stage("First Stage") {
-
-            agent {
-                label  'dockerinbound'
+        stage("Compile") {
+             docker {
+                image 'python:3'
+                label  'east'
             }
             steps{
-                echo "Running first stage"
+                echo "Running the compile phase"
+                sh 'python3 -m compileall adder.py' 
             }
-          
+        }
+
+        stage("Test") {
+             docker {
+                image 'python:3'
+                label  'east'
+            }
+            steps {
+                echo "Running the Test phase"
+                sh 'python3 -m unittest adder.py' 
+            }
+        }
+
+        post {
+            echo "All done"
         }
 
     }
