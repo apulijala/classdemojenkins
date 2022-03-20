@@ -1,6 +1,13 @@
 pipeline {
+    
     agent {
         label  'east'
+    }
+
+    options {
+
+        disableConcurrentBuilds()
+
     }
 
     parameters {
@@ -50,9 +57,14 @@ pipeline {
                         }
                     */
 
+                    /*
+                    Which label should be used. is the on the resource. 
                     lock (label : "east", quantity: 1) {
                         sleep 5
                     }
+                    */
+
+
                    
                  }
             }
