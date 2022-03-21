@@ -98,7 +98,24 @@ pipeline {
 
                 }
             }
-       
+        }
+        stage("Parallel in declarative pipeline") {
+            parallel(
+                east : {
+                    node("east") {
+                        // code within the closure will be executed. 
+                        // on the goal here. 
+                        echo "Running in the east cluster in parallel mode"
+                    }
+                }, 
+                west : {
+                    node("west") {
+                        // Code within the closure will be executed here. 
+                        
+                        echo "Running in the west cluster in parallel mode"
+                    }
+                }   
+            )
         }
     }
 }
