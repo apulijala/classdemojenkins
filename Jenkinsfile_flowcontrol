@@ -121,6 +121,37 @@ pipeline {
 
             }
         }
+
+        stage("Alternative Syntax") {
+
+                    parallel {
+                        stage ("east with alternate syntax") {
+                                agent{ label: "east" }
+                                steps {
+                                    echo "Running east cluster with alternate syntax One"
+                                    echo "Running east cluster with alternate syntax Two"
+                                }
+                        }
+
+                        stage ("West with Alternate Syntax") {
+                                agent{ label: "west"}
+                                
+                                steps {
+                                    echo "Running east cluster with alternate syntax One"
+                                    echo "Running east cluster with alternate syntax Two"
+                                        
+                                }
+                                
+                        }
+                        stage ("docker inbound with alternate syntax") {
+                            agent { label : "dockerinbound"}
+                            steps {
+                                echo "Docker inbound agent with alternate syntax"
+                            }
+                        }
+                    }
+
+        }
     }
 }
 
