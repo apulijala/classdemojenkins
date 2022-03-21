@@ -126,7 +126,9 @@ pipeline {
 
                     parallel {
                         stage ("east with alternate syntax") {
-                                agent{ label: "east" }
+                                 agent {
+                                    label  'east'
+                                }
                                 steps {
                                     echo "Running east cluster with alternate syntax One"
                                     echo "Running east cluster with alternate syntax Two"
@@ -134,7 +136,9 @@ pipeline {
                         }
 
                         stage ("West with Alternate Syntax") {
-                                agent{ label: "west"}
+                                agent {
+                                    label  'west'
+                                }
                                 
                                 steps {
                                     echo "Running east cluster with alternate syntax One"
@@ -143,10 +147,18 @@ pipeline {
                                 }
                                 
                         }
+
                         stage ("docker inbound with alternate syntax") {
-                            agent { label : "dockerinbound"}
+                            agent { label  "dockerinbound"}
                             steps {
                                 echo "Docker inbound agent with alternate syntax"
+                            }
+                        }
+
+                        stage ("docker outbound with alternate syntax") {
+                            agent { label  "dockeroutbound"}
+                            steps {
+                                echo "Docker outbound agent with alternate syntax"
                             }
                         }
                     }
